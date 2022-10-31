@@ -3,6 +3,8 @@
     --colour-border: #303030;
     --colour-text: ghostwhite;
     --colour-btn: #222222;
+    --colour-hover: #3f3f3f;
+    --colour-focus: #ffff;
 }
 
 html {
@@ -45,6 +47,7 @@ header {
 
 .logo {
     width: 8em;
+    margin-left: 2em;
 }
 
 form {
@@ -126,6 +129,7 @@ form input[type=text]:hover {
 
 main {
     display: flex;
+    flex-direction: column;
     position: relative;
     top: 5.4em;
 }
@@ -150,13 +154,16 @@ main {
 
 .top-nav {
     display: flex;
-    margin: 0em 1em 1em 5em;
-    overflow: auto;
-    overflow-x: hidden;
+    margin: 0em 1em 1em 7em;
+    overflow-x: scroll;
     white-space: nowrap;
     gap: 1em;
     position: sticky;
-    z-index: -1;
+    z-index: 1;
+}
+
+.top-nav::-webkit-scrollbar {
+    display: none;
 }
 
 .top-nav button {
@@ -166,4 +173,47 @@ main {
     border-width: 0;
     background-color: var(--colour-border);
     color: var(--colour-text);
+    transition: ease .2s;
+}
+
+.top-nav button:hover {
+    background-color: var(--colour-hover)
+}
+
+.top-nav button:focus {
+    background-color: var(--colour-focus);
+    color: var(--colour-background);
+}
+
+.content-area {
+    /* position: fixed; */
+    display: flex;
+    margin: 2em .4em 1em 7em;
+    gap: 2em;
+    overflow-y: scroll;
+    color: var(--colour-text);
+}
+
+.main-thumbnail {
+    display: flex;
+    flex-direction: column;
+}
+
+.thumbnail {
+    width: 16em;
+    border-radius: 10px;
+}
+
+.description {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0em .6em .2em 0px;
+    gap: .5em;
+    align-items: center;
+}
+
+.desc {
+    margin-left: 3.2em;
+    font-weight: 100;
+    font-size: 13px;
 }
